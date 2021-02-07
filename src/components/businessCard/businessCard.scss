@@ -1,0 +1,7 @@
+.business__card {
+  margin: 1.2rem;
+  &--action__btns {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

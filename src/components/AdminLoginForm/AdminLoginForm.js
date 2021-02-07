@@ -1,7 +1,10 @@
+import { useHistory } from 'react-router-dom'
 import { Card, Form, Button } from 'react-bootstrap'
 import './adminLoginForm.scss'
 
 const AdminLoginForm = () => {
+  const history = useHistory()
+
   return (
     <Card className='login__form'>
       <h2>Admin Login</h2>
@@ -17,7 +20,9 @@ const AdminLoginForm = () => {
         </Form.Group>
 
         <Form.Group className='text-center'>
-          <Button>Log in</Button>
+          <Button onClick={() => history.push('/admin/dashboard')}>
+            Log in
+          </Button>
         </Form.Group>
       </Form>
     </Card>

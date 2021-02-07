@@ -1,0 +1,17 @@
+.admin__dashboard {
+  padding: 1.5rem;
+  margin: auto;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+
+  .icon {
+    width: 2px;
+    border: 1px solid red;
+  }
+
+  &--business__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

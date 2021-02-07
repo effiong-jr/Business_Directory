@@ -8,7 +8,7 @@ const AdminLogin = () => {
       <NavHeader />
 
       <div className='admin__login'>
-        <AdminLoginForm formTitle='AdminLogin' />
+        <AdminLoginForm />
       </div>
     </>
   )
