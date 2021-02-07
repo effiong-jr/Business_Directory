@@ -1,9 +1,15 @@
+import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Card, Form, Button } from 'react-bootstrap'
 import './adminLoginForm.scss'
 
 const AdminLoginForm = () => {
+  const [adminEmail, setAdminEmail] = useState('')
+  const [adminPassword, setAdminPassword] = useState('')
+
   const history = useHistory()
+
+  const handleAdminLogin = () => {}
 
   return (
     <Card className='login__form'>
