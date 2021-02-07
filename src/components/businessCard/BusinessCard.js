@@ -1,4 +1,4 @@
-import { Card, Row, Col, ListGroup, Button } from 'react-bootstrap'
+import { Card, Row, Col, ListGroup, Button, Image } from 'react-bootstrap'
 import { MdBusinessCenter } from 'react-icons/md'
 import { FaPhoneAlt, FaGlobeAmericas } from 'react-icons/fa'
 import { BiMailSend } from 'react-icons/bi'
@@ -57,7 +57,14 @@ const BusinessCard = () => {
         </ListGroup.Item>
       </ListGroup>
 
-      <div>Image goes here</div>
+      <div className='business__card--images'>
+        <div className='business__card--image'>
+          <Image src='#' alt='business_img' fluid />
+        </div>
+        <div className='business__card--image'>
+          <Image src='#' alt='business_img' fluid />
+        </div>
+      </div>
       <div className='business__card--action__btns'>
         <Button variant='secondary'>Edit</Button>
         <Button variant='danger'>Delete</Button>

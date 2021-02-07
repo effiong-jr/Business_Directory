@@ -1,5 +1,18 @@
 .business__card {
   margin: 1.2rem;
+
+  &--images {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0.7rem;
+    border: 1px solid green;
+    height: 100px;
+  }
+
+  &--image {
+    border: 3px solid yellow;
+  }
+
   &--action__btns {
     display: flex;
     justify-content: space-evenly;
