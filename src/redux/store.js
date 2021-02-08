@@ -14,7 +14,6 @@ const initialState = {
   userLogin: {
     userDetails: adminInfoFromStorage,
   },
-
   businessList: businessListFromStorage,
 }
 

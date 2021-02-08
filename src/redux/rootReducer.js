@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 import { userLoginReducer } from './reducers/userLoginReducer'
-import { businessActionReducer } from './reducers/businessActionReducer'
+import { businessListReducer } from './reducers/businessListReducer'
 
 const rootReducer = combineReducers({
   userLogin: userLoginReducer,
-  businessAction: businessActionReducer,
+  businessList: businessListReducer,
 })
 
 export default rootReducer
