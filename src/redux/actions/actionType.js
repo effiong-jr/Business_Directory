@@ -1,4 +1,9 @@
-import { LOGIN_FAILED, LOGIN_REQUEST, LOGIN_SUCCESS } from './actionNames'
+import {
+  LOGIN_FAILED,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGOUT,
+} from './actionNames'
 
 // Login actions
 export const loginRequest = () => ({
@@ -13,4 +18,8 @@ export const loginSuccess = ({ email }) => ({
 export const loginFailed = (errorMessage) => ({
   type: LOGIN_FAILED,
   payload: errorMessage,
+})
+
+export const logout = () => ({
+  type: LOGOUT,
 })

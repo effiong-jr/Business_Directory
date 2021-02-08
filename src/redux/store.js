@@ -4,7 +4,7 @@ import rootReducer from './rootReducer'
 
 const adminInfoFromStorage = localStorage.getItem('userDetails')
   ? JSON.parse(localStorage.getItem('userDetails'))
-  : null
+  : {}
 
 const initialState = {
   userLogin: {

@@ -8,21 +8,21 @@ import {
 const userLoginReducer = (state = {}, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
-      return { ...state, isLoading: true }
+      return { isLoading: true }
     case LOGIN_SUCCESS:
       localStorage.setItem(
         'userDetails',
         JSON.stringify({ isAdmin: true, ...action.payload })
       )
       return {
-        ...state,
         isLoading: false,
         userDetails: { isAdmin: true, ...action.payload },
       }
     case LOGIN_FAILED:
-      return { ...state, isloading: false, errorMessage: action.payload }
+      return { isloading: false, errorMessage: action.payload }
 
     case LOGOUT: {
+      localStorage.removeItem('userDetails')
       return { userDetails: {} }
     }
     default:

@@ -15,6 +15,7 @@ import './adminLoginForm.scss'
 const AdminLoginForm = () => {
   const history = useHistory()
   const userDetails = useSelector((state) => state.userLogin.userDetails)
+  const hasError = useSelector((state) => state.userLogin)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -86,6 +87,12 @@ const AdminLoginForm = () => {
                 <div className='form__errors'>{props.errors.password}</div>
               )}
             </Form.Group>
+
+            {hasError && hasError.errorMessage && (
+              <div className='text-danger text-center login__error__message'>
+                *{hasError.errorMessage}
+              </div>
+            )}
 
             <Form.Group className='text-center'>
               <Button type='submit'>Log in</Button>
