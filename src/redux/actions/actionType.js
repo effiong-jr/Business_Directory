@@ -1,14 +1,13 @@
 import { LOGIN_FAILED, LOGIN_REQUEST, LOGIN_SUCCESS } from './actionNames'
 
 // Login actions
-export const loginRequest = ({ email, password }) => ({
+export const loginRequest = () => ({
   type: LOGIN_REQUEST,
-  payload: { email, password },
 })
 
-export const loginSuccess = ({ email, password, isAdmin }) => ({
+export const loginSuccess = ({ email }) => ({
   type: LOGIN_SUCCESS,
-  payload: { email, password, isAdmin },
+  payload: { email },
 })
 
 export const loginFailed = (errorMessage) => ({

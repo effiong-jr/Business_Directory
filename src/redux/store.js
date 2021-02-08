@@ -2,7 +2,15 @@ import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './rootReducer'
 
-const initialState = {}
+const adminInfoFromStorage = localStorage.getItem('userDetails')
+  ? JSON.parse(localStorage.getItem('userDetails'))
+  : null
+
+const initialState = {
+  userLogin: {
+    userDetails: adminInfoFromStorage,
+  },
+}
 
 const middleware = []
 
