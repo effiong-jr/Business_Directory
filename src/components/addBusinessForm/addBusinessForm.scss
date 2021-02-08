@@ -3,9 +3,16 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+  }
+  div.form__errors {
+    font-size: 0.7rem;
+    color: rgb(230, 42, 42);
+    font-weight: 600;
+    text-align: right;
+  }
 
-    div.form-check {
-      margin: 0 10px;
-    }
+  &--cta__btns {
+    display: flex;
+    justify-content: space-evenly;
   }
 }

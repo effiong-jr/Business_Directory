@@ -13,9 +13,9 @@ const BusinessCard = () => {
       <ListGroup variant='flush'>
         <ListGroup.Item>
           <Row>
-            <Col>
+            {/* <Col>
               <MdBusinessCenter />
-            </Col>
+            </Col> */}
             <Col>Description</Col>
           </Row>
         </ListGroup.Item>
