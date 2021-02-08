@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Navbar, Form, FormControl, Button } from 'react-bootstrap'
-import { logout } from '../../redux/actions/actionType'
+import { logout } from '../../redux/actions/loginActionType'
 
 const NavHeader = () => {
   const user = useSelector((state) => state.userLogin.userDetails)

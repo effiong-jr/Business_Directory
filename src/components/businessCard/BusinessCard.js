@@ -1,5 +1,4 @@
 import { Card, Row, Col, ListGroup, Button, Image } from 'react-bootstrap'
-import { MdBusinessCenter } from 'react-icons/md'
 import { FaPhoneAlt, FaGlobeAmericas } from 'react-icons/fa'
 import { BiMailSend } from 'react-icons/bi'
 import { HiOutlineUserGroup } from 'react-icons/hi'

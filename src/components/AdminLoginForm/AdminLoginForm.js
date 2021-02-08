@@ -8,7 +8,7 @@ import {
   loginRequest,
   loginSuccess,
   loginFailed,
-} from '../../redux/actions/actionType'
+} from '../../redux/actions/loginActionType'
 
 import './adminLoginForm.scss'
 

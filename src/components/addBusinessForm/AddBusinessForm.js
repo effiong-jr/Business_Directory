@@ -1,10 +1,15 @@
+import { v4 as uuidv4 } from 'uuid'
 import { Modal, Button, Form } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
 import { TiDeleteOutline } from 'react-icons/ti'
 import { Formik, FieldArray } from 'formik'
 import * as yup from 'yup'
+import { addBusiness } from '../../redux/actions/businessActionTypes'
 import './addBusinessForm.scss'
 
 const AddBusinessForm = ({ show, handleClose }) => {
+  const dispatch = useDispatch()
+
   const addBusinessSchema = yup.object().shape({
     businessName: yup.string().required('Required'),
     description: yup.string().required('Required'),
@@ -15,7 +20,18 @@ const AddBusinessForm = ({ show, handleClose }) => {
   })
 
   const handleAddBusiness = (values, { setSubmitting }) => {
-    console.log(values)
+    dispatch(
+      addBusiness({
+        ...values,
+        id: uuidv4(),
+        images: [
+          ' https://placeimg.com/160/160/any',
+          ' https://placeimg.com/160/160/any',
+        ],
+      })
+    )
+    handleClose()
+    setSubmitting(false)
   }
 
   return (
