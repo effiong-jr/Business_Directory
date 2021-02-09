@@ -1,6 +1,7 @@
 import {
   ADD_BUSINESS,
   DELETE_BUSINESS,
+  SEARCH_BUSINESS,
   UPDATE_BUSINESS,
   VIEW_ALL_BUSINESS,
 } from './actionNames'
@@ -23,4 +24,9 @@ export const deleteBusiness = (id) => ({
 export const updateBusiness = (data) => ({
   type: UPDATE_BUSINESS,
   payload: data,
+})
+
+export const searchBusiness = (value) => ({
+  type: SEARCH_BUSINESS,
+  payload: value,
 })

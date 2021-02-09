@@ -1,6 +1,7 @@
 import {
   ADD_BUSINESS,
   DELETE_BUSINESS,
+  SEARCH_BUSINESS,
   UPDATE_BUSINESS,
 } from '../actions/actionNames'
 
@@ -14,14 +15,11 @@ export const businessListReducer = (state = [], action) => {
       return [...state, action.payload]
 
     case UPDATE_BUSINESS:
-      console.log(action.payload)
       const updatedBusinessList = state.map((business) => {
         const updatedList =
           business.id === action.payload.id ? action.payload : business
         return updatedList
       })
-
-      console.log(updatedBusinessList)
 
       localStorage.setItem(
         'businessList',
@@ -35,6 +33,24 @@ export const businessListReducer = (state = [], action) => {
       )
       localStorage.setItem('businessList', JSON.stringify([...listAfterDelete]))
       return [...listAfterDelete]
+
+    case SEARCH_BUSINESS:
+      const businessFromLocalStorage = localStorage.getItem
+        ? JSON.parse(localStorage.getItem('businessList'))
+        : []
+
+      // Check if Business Name or Business Description contains search value
+      const searchedBusiness = businessFromLocalStorage.filter(
+        (business) =>
+          business.businessName
+            .toLowerCase()
+            .includes(action.payload.toLowerCase()) ||
+          business.description
+            .toLowerCase()
+            .includes(action.payload.toLowerCase())
+      )
+
+      return searchedBusiness
 
     default:
       return state

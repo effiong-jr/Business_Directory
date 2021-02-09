@@ -9,3 +9,6 @@ export const ADD_BUSINESS = 'ADD_BUSINESS'
 export const DELETE_BUSINESS = 'DELETE_BUSINESS'
 export const UPDATE_BUSINESS = 'UPDATE_BUSINESS'
 export const VIEW_ALL_BUSINESS = 'VIEW_ALL_BUSINESS'
+
+// Search business
+export const SEARCH_BUSINESS = 'SEARCH_BUSINESS'

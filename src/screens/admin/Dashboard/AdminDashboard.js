@@ -2,9 +2,11 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import { RiAddCircleFill } from 'react-icons/ri'
-import AddBusinessForm from '../../../components/addBusinessForm/AddBusinessForm'
 
+import AddBusinessForm from '../../../components/addBusinessForm/AddBusinessForm'
 import BusinessCard from '../../../components/businessCard/BusinessCard'
+
+import SearchInput from '../../../components/search/SearchInput'
 
 import './adminDashboard.scss'
 
@@ -27,6 +29,9 @@ const AdminDashboard = () => {
       />
 
       <div className='admin__dashboard'>
+        <div className='mb-3'>
+          <SearchInput />
+        </div>
         <p className='admin__dashboard--title text-center'>
           You currently have <strong>{businessList.length} </strong>
           {businessList.length === 1 ? 'business' : 'businesses'} listed in your
