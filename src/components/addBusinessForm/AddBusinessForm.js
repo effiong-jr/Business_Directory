@@ -168,7 +168,7 @@ const AddBusinessForm = ({ show, handleClose, businessInfo = {} }) => {
                                   <Form.Control
                                     type='text'
                                     placeholder='Enter category'
-                                    value={props.category}
+                                    value={category}
                                     name={`categories.${index}`}
                                     onChange={props.handleChange}
                                   />
