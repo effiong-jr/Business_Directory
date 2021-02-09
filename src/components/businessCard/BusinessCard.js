@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Card, Row, Col, ListGroup, Button, Image } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { FaPhoneAlt, FaGlobeAmericas } from 'react-icons/fa'
@@ -23,6 +24,7 @@ const BusinessCard = ({ businessInfo }) => {
   } = businessInfo
 
   const dispatch = useDispatch()
+  const isAdmin = useSelector((state) => state.userLogin.userDetails)
 
   const handleClose = () => setShowModal(false)
 
@@ -67,7 +69,9 @@ const BusinessCard = ({ businessInfo }) => {
               <Col sm='2'>
                 <BiMailSend />
               </Col>
-              <Col>{email}</Col>
+              <Col>
+                <a href={`mailto:${email}`}>{email}</a>
+              </Col>
             </Row>
           </ListGroup.Item>
 
@@ -76,7 +80,11 @@ const BusinessCard = ({ businessInfo }) => {
               <Col sm='2'>
                 <FaGlobeAmericas />
               </Col>
-              <Col>{website}</Col>
+              <Col>
+                <a href={website} target='_blank' rel='noreferrer'>
+                  {website}
+                </a>
+              </Col>
             </Row>
           </ListGroup.Item>
 
@@ -98,14 +106,18 @@ const BusinessCard = ({ businessInfo }) => {
             <Image src={images[1]} alt='business_img' fluid />
           </div>
         </div>
-        <div className='business__card--action__btns'>
-          <Button variant='secondary' onClick={handleEdit}>
-            Edit
-          </Button>
-          <Button variant='danger' onClick={handleDelete}>
-            Delete
-          </Button>
-        </div>
+
+        {/* Check if the user is an admin ? show edit and delete btns else hide btns */}
+        {isAdmin.isAdmin && (
+          <div className='business__card--action__btns'>
+            <Button variant='secondary' onClick={handleEdit}>
+              Edit
+            </Button>
+            <Button variant='danger' onClick={handleDelete}>
+              Delete
+            </Button>
+          </div>
+        )}
       </Card>
     </>
   )

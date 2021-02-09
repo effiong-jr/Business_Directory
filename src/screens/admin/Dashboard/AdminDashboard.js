@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 
 import { RiAddCircleFill } from 'react-icons/ri'
 
+import NavHeader from '../../../components/Navbar/Navbar'
 import AddBusinessForm from '../../../components/addBusinessForm/AddBusinessForm'
 import BusinessCard from '../../../components/businessCard/BusinessCard'
 
@@ -10,7 +11,6 @@ import SearchInput from '../../../components/search/SearchInput'
 
 import './adminDashboard.scss'
 
-import NavHeader from '../../../components/Navbar/Navbar'
 const AdminDashboard = () => {
   const [showAddBusinessForm, setShowAddBusinessForm] = useState(false)
 
