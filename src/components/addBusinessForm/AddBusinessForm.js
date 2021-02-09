@@ -1,13 +1,17 @@
+import { useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { Modal, Button, Form } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { TiDeleteOutline } from 'react-icons/ti'
 import { Formik, FieldArray } from 'formik'
 import * as yup from 'yup'
-import { addBusiness } from '../../redux/actions/businessActionTypes'
+import {
+  addBusiness,
+  updateBusiness,
+} from '../../redux/actions/businessActionTypes'
 import './addBusinessForm.scss'
 
-const AddBusinessForm = ({ show, handleClose }) => {
+const AddBusinessForm = ({ show, handleClose, businessInfo = {} }) => {
   const dispatch = useDispatch()
 
   const addBusinessSchema = yup.object().shape({
@@ -34,6 +38,17 @@ const AddBusinessForm = ({ show, handleClose }) => {
     setSubmitting(false)
   }
 
+  const handleUpdateBusinessDetails = (values, { setSubmitting }) => {
+    dispatch(
+      updateBusiness({
+        ...businessInfo,
+        ...values,
+      })
+    )
+    handleClose()
+    setSubmitting(false)
+  }
+
   return (
     <>
       <Modal
@@ -49,16 +64,18 @@ const AddBusinessForm = ({ show, handleClose }) => {
         <Modal.Body>
           <Formik
             initialValues={{
-              businessName: '',
-              description: '',
-              phone: '',
-              email: '',
-              website: '',
-              categories: [],
+              businessName: businessInfo.businessName || '',
+              description: businessInfo.description || '',
+              phone: businessInfo.phone || '',
+              email: businessInfo.email || '',
+              website: businessInfo.website || '',
+              categories: businessInfo.categories || [],
             }}
             validationSchema={addBusinessSchema}
             onSubmit={(values, { setSubmitting }) =>
-              handleAddBusiness(values, { setSubmitting })
+              businessInfo.hasOwnProperty('id')
+                ? handleUpdateBusinessDetails(values, { setSubmitting })
+                : handleAddBusiness(values, { setSubmitting })
             }
           >
             {(props) => (
@@ -143,6 +160,7 @@ const AddBusinessForm = ({ show, handleClose }) => {
                       name='categories'
                       render={(arrayHelpers) => (
                         <div className='w-100'>
+                          {/* Category field to add new business */}
                           {props.values.categories &&
                           props.values.categories.length > 0
                             ? props.values.categories.map((category, index) => (
@@ -150,7 +168,7 @@ const AddBusinessForm = ({ show, handleClose }) => {
                                   <Form.Control
                                     type='text'
                                     placeholder='Enter category'
-                                    // value={`categories.${index}`}
+                                    value={props.category}
                                     name={`categories.${index}`}
                                     onChange={props.handleChange}
                                   />
@@ -197,8 +215,6 @@ const AddBusinessForm = ({ show, handleClose }) => {
             )}
           </Formik>
         </Modal.Body>
-        {/* <Modal.Footer>
-        </Modal.Footer> */}
       </Modal>
     </>
   )
