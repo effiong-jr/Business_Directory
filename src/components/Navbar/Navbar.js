@@ -22,13 +22,20 @@ const NavHeader = () => {
       <Navbar.Toggle aria-controls='basic-navbar-nav' />
       <Navbar.Collapse id='basic-navbar-nav'>
         {user && user.isAdmin ? (
-          <Button
-            className='nav-button ml-auto'
-            variant='danger'
-            onClick={handleLogout}
-          >
-            Logout
-          </Button>
+          <>
+            <div className='ml-auto'>
+              <Link to='/admin/dashboard' className='nav nav-link p-0 pb-1'>
+                Signed in as admin
+              </Link>
+              <Button
+                className='nav-button ml-auto'
+                variant='danger'
+                onClick={handleLogout}
+              >
+                Logout
+              </Button>
+            </div>
+          </>
         ) : (
           <Link to='/admin/login' className='ml-auto'>
             Admin Login

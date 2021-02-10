@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import ReactHTMLTableToExcel from 'react-html-table-to-excel'
+
 import { useSelector } from 'react-redux'
 
 import { Button, Table } from 'react-bootstrap'
@@ -61,28 +63,45 @@ const AdminDashboard = () => {
             <BusinessCard key={business.id} businessInfo={business} />
           ))} */}
           {showAsCard === false ? (
-            <Table
-              striped
-              bordered
-              responsive
-              hover
-              size='sm'
-              className='container'
-            >
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Business Name</th>
-                  <th>Description</th>
-                  <th>Phone</th>
-                  <th>Email</th>
-                  <th>Website</th>
-                  <th>Categories</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>{tableView}</tbody>
-            </Table>
+            <>
+              <Table
+                id='table-to-xls'
+                striped
+                bordered
+                responsive
+                hover
+                size='sm'
+                className='container'
+              >
+                <thead>
+                  <tr>
+                    <th colSpan='8' className='text-right'>
+                      {/* Button to export table as an excel document */}
+                      <ReactHTMLTableToExcel
+                        as={Button}
+                        id='test-table-xls-button'
+                        className='download-table-xls-button btn btn-sm'
+                        table='table-to-xls'
+                        filename='Business_List'
+                        sheet='Business_List'
+                        buttonText='Export to Excel (.xls)'
+                      />
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>#</th>
+                    <th>Business Name</th>
+                    <th>Description</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Website</th>
+                    <th>Categories</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>{tableView}</tbody>
+              </Table>
+            </>
           ) : (
             cardView
           )}
