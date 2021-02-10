@@ -1,5 +1,11 @@
 Live URL [https://business-directory-bassey.netlify.app](https://business-directory-bassey.netlify.app/)
 
+Admin Login credentials:
+
+Email: admin@email.com
+
+Password: @Password123
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
