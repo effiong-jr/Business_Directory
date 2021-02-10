@@ -41,7 +41,7 @@ const AdminDashboard = () => {
         handleClose={handleCloseAddBusinessForm}
       />
 
-      <div className='admin__dashboard'>
+      <div className='admin__dashboard container'>
         <div className='mb-3'>
           <SearchInput />
         </div>
@@ -50,6 +50,7 @@ const AdminDashboard = () => {
           {businessList.length === 1 ? 'business' : 'businesses'} listed in your
           directory
         </p>
+
         <Button
           variant='info'
           className='btn btn-sm ml-auto mb-3'
@@ -59,9 +60,6 @@ const AdminDashboard = () => {
         </Button>
 
         <div className='admin__dashboard--business__list'>
-          {/* {businessList.map((business) => (
-            <BusinessCard key={business.id} businessInfo={business} />
-          ))} */}
           {showAsCard === false ? (
             <>
               <Table
@@ -74,20 +72,22 @@ const AdminDashboard = () => {
                 className='container'
               >
                 <thead>
-                  <tr>
-                    <th colSpan='8' className='text-right'>
-                      {/* Button to export table as an excel document */}
-                      <ReactHTMLTableToExcel
-                        as={Button}
-                        id='test-table-xls-button'
-                        className='download-table-xls-button btn btn-sm'
-                        table='table-to-xls'
-                        filename='Business_List'
-                        sheet='Business_List'
-                        buttonText='Export to Excel (.xls)'
-                      />
-                    </th>
-                  </tr>
+                  {businessList.length > 0 && (
+                    <tr>
+                      <th colSpan='8' className='text-right'>
+                        {/* Button to export table as an excel document */}
+                        <ReactHTMLTableToExcel
+                          as={Button}
+                          id='test-table-xls-button'
+                          className='download-table-xls-button btn btn-sm'
+                          table='table-to-xls'
+                          filename='Business_List'
+                          sheet='Business_List'
+                          buttonText='Export to Excel (.xls)'
+                        />
+                      </th>
+                    </tr>
+                  )}
                   <tr>
                     <th>#</th>
                     <th>Business Name</th>

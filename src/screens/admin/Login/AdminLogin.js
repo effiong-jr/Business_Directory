@@ -1,4 +1,4 @@
-import AdminLoginForm from '../../../components/adminLoginForm/AdminLoginForm'
+import AdminLoginForm from '../../../components/AdminLoginForm/AdminLoginForm'
 import NavHeader from '../../../components/Navbar/Navbar'
 import './adminLogin.scss'
 
