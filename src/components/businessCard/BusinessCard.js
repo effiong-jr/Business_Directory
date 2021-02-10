@@ -51,13 +51,13 @@ const BusinessCard = ({ businessInfo }) => {
               {/* <Col>
               <MdBusinessCenter />
             </Col> */}
-              <Col>{description}</Col>
+              <Col className='business__card--description'>{description}</Col>
             </Row>
           </ListGroup.Item>
 
           <ListGroup.Item>
             <Row>
-              <Col sm='2'>
+              <Col xs='1'>
                 <FaPhoneAlt />
               </Col>
               <Col>{phone}</Col>
@@ -66,7 +66,7 @@ const BusinessCard = ({ businessInfo }) => {
 
           <ListGroup.Item>
             <Row>
-              <Col sm='2'>
+              <Col xs='1'>
                 <BiMailSend />
               </Col>
               <Col>
@@ -77,7 +77,7 @@ const BusinessCard = ({ businessInfo }) => {
 
           <ListGroup.Item>
             <Row>
-              <Col sm='2'>
+              <Col xs='1'>
                 <FaGlobeAmericas />
               </Col>
               <Col>
@@ -90,10 +90,12 @@ const BusinessCard = ({ businessInfo }) => {
 
           <ListGroup.Item>
             <Row>
-              <Col sm='2'>
+              <Col xs='1'>
                 <HiOutlineUserGroup />
               </Col>
-              <Col>{categories.join(', ')}</Col>
+              <Col className='business__card--category'>
+                {categories.join(', ')}
+              </Col>
             </Row>
           </ListGroup.Item>
         </ListGroup>

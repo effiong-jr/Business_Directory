@@ -104,9 +104,11 @@ const AddBusinessForm = ({ show, handleClose, businessInfo = {} }) => {
                   <Form.Control
                     as='textarea'
                     name='description'
-                    placeholder='Describe this business'
+                    className='add__business__form--description-field'
+                    placeholder='Describe this business (max: 100 characters)'
                     value={props.values.description}
                     onChange={props.handleChange}
+                    maxLength='100'
                   />
                   {props.errors.description && props.touched.description && (
                     <div className='form__errors'>
@@ -168,7 +170,7 @@ const AddBusinessForm = ({ show, handleClose, businessInfo = {} }) => {
                                   <Form.Control
                                     type='text'
                                     placeholder='Enter category'
-                                    value={category}
+                                    value={props.values.categories[index]}
                                     name={`categories.${index}`}
                                     onChange={props.handleChange}
                                   />
@@ -189,7 +191,7 @@ const AddBusinessForm = ({ show, handleClose, businessInfo = {} }) => {
                             <Button
                               variant='secondary'
                               type='button'
-                              onClick={() => arrayHelpers.push(props.values)}
+                              onClick={() => arrayHelpers.push('')}
                             >
                               Add Category
                             </Button>

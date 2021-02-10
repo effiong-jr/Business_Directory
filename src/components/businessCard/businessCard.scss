@@ -1,6 +1,16 @@
 .business__card {
   margin: 1.2rem;
 
+  &--description {
+    height: 63px;
+  }
+
+  &--category {
+    height: 50px;
+    overflow-y: scroll;
+    scrollbar-width: 10px;
+  }
+
   &--images {
     display: flex;
     justify-content: space-evenly;
@@ -23,5 +33,11 @@
   &--action__btns {
     display: flex;
     justify-content: space-evenly;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .business__card--description {
+    overflow-y: scroll;
   }
 }
