@@ -25,9 +25,6 @@ const NavHeader = () => {
           {user && user.isAdmin ? (
             <>
               <div className='ml-auto text-right'>
-                <Link to='/admin/dashboard' className='nav nav-link p-0 pb-1'>
-                  Signed in as admin
-                </Link>
                 <Button
                   className='nav-button ml-auto'
                   variant='danger'
@@ -35,6 +32,12 @@ const NavHeader = () => {
                 >
                   Logout
                 </Button>
+                <Link
+                  to='/admin/dashboard'
+                  className='nav nav-link p-0 pb-1 mt-2'
+                >
+                  Admin
+                </Link>
               </div>
             </>
           ) : (
